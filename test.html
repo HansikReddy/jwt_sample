@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>TUTORIAl</title>
+
+   <script src='core.js'></script>
+   <script src='enc-base64.js'></script>
+   <script src='hmac.js'></script>
+   <script src='sha256.js'></script>
+   
+   
+   <script>
+            function getBase64Encoded(rawStr){
+                var wordArray = CryptoJS.enc.Utf8.parse(rawStr);
+                var result = CryptoJS.enc.Base64.stringify(wordArray);
+                return result;
+            }
+
+            function doEncode(){
+                var txtEncode=document.getElementById("txtEncode").value;
+                var resultEncode=document.getElementById("resultEncode");
+                console.log(txtEncode);
+                console.log(getBase64Encoded(txtEncode));
+                resultEncode.innerText= getBase64Encoded(txtEncode.value);
+                console.log(txtEncode.value);
+            }
+
+   </script>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Enter a string to base54 encode: </td>
+            <td><input text="text" id="txtEncode"/></td>
+           
+            <td><button onclick="doEncode()">Encode</button> </td>
+        </tr>
+    </table>
+    
+</body>
+</html>
+
